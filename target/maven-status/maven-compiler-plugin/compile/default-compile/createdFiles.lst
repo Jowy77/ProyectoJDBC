@@ -1,0 +1,5 @@
+com\mycompany\proyectojdbc\App.class
+com\mycompany\proyectojdbc\SecondaryController.class
+module-info.class
+com\mycompany\proyectojdbc\PrimaryController.class
+com\mycompany\proyectojdbc\JDBC.class
