@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectojdbc.SecondaryController">
-    <children>
-        <Label text="Secondary View" />
-        <Button fx:id="secondaryButton" text="Switch to Primary View" onAction="#switchToPrimary" />
-    </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-</VBox>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectojdbc.SecondaryController">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="227.0" minWidth="10.0" prefWidth="72.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="392.0" minWidth="10.0" prefWidth="392.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="241.0" minHeight="10.0" prefHeight="241.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="25.0" valignment="CENTER" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="526.0" GridPane.columnSpan="3">
+        <menus>
+          <Menu mnemonicParsing="false" text="Consultas">
+            <items>
+              <MenuItem fx:id="consultaAlumnosPorNombreMenuItem" mnemonicParsing="false" onAction="#ConsultarAlumnosPorNombre" text="Consulta alumnos 3 nombres" />
+                  <MenuItem fx:id="consultarTodosLosAlumnosMenuItem" mnemonicParsing="false" onAction="#ConsultarTodosLosAlumnos" text="Consultar todos los alumnos" />
+                  <MenuItem fx:id="consultarFamiliaresButton" mnemonicParsing="false" onAction="#onConsultarFamiliarDeCuatroAlumnos" text="Consultar familiares de 4 alumnos" />
+                  <MenuItem fx:id="consultaExtraFamiliaresConCustodia" mnemonicParsing="false" onAction="#onConsultarFamiliaresConCustodia" text="Consulta extra(familiares que tienen la custodia)" />
+                  <MenuItem fx:id="consultarDireccionesMenuItem" mnemonicParsing="false" onAction="#onConsultarDirecciones" text="Consultar Direcciones" />
+                  <MenuItem fx:id="consultarFamiliaresMenuItem" mnemonicParsing="false" onAction="#onConsultarFamiliares" text="Consultar Familiares" />
+                  <MenuItem fx:id="consultarAsignaturasMenuItem" mnemonicParsing="false" onAction="#onConsultarAsignaturas" text="Consultar Asignaturas" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Insertar">
+            <items>
+              <MenuItem fx:id="insertarAlumnoMenuItem" mnemonicParsing="false" onAction="#onInsertarAlumno" text="Insertar alumno" />
+                  <MenuItem fx:id="insertarDireccionMenuItem" mnemonicParsing="false" onAction="#onInsertarDireccion" text="Insertar una direccion" />
+                  <MenuItem fx:id="insertarFamiliarMenuItem" mnemonicParsing="false" onAction="#onInsertarFamiliar" text="Insertar un familiar" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Actualizar">
+              <items>
+                <MenuItem fx:id="modificarAsignaturaMenuItem" mnemonicParsing="false" onAction="#onModificarAsignatura" text="Modificar una asignatura de un alumno" />
+                  <MenuItem fx:id="modificarCustodiaMenuItem" mnemonicParsing="false" onAction="#onModificarCustodia" text="Modificar el estado de la custodia de un familiar" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Eliminar">
+            <items>
+              <MenuItem fx:id="eliminarAlumnoMenuItem" mnemonicParsing="false" onAction="#onEliminarAlumno" text="Elimina un alumno y su direccion" />
+                  <MenuItem fx:id="eliminarAsignaturaAlumnoMenuItem" mnemonicParsing="false" onAction="#onEliminarAsignaturaAlumno" text="Eliminar asignatura de un alumno" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TextArea fx:id="consultasTextArea" editable="false" prefHeight="150.0" prefWidth="317.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button fx:id="salirButton" mnemonicParsing="false" onAction="#onSalir" text="Salir" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+   </children>
+</GridPane>
